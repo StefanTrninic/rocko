@@ -1,0 +1,38 @@
+page-leagub-stats {
+  .mat-header-row {
+    background-color: #388e3c;
+    border-bottom-style: none;
+    padding: 0 16px;
+  }
+
+  span.cdk-visually-hidden {
+    display: none;
+  }
+  div.mat-sort-header-arrow.ng-trigger.ng-trigger-arrowPosition {
+    display: none;
+  }
+  .mat-row {
+    border-bottom-style: none;
+    min-height: 40px;
+    padding: 0 16px;
+  }
+
+  .mat-row:nth-child(even) {
+    background-color: #cae5ae;
+  }
+
+  .mat-row:nth-child(odd) {
+    background-color: #a1e4a3;
+  }
+
+  .nameWidthClass {
+    flex: 0 0 110px;
+  }
+
+  .gdWidthClass {
+    flex: 0 0 50px;
+  }
+  .mat-paginator {
+    background-color: #388e3c;
+  }
+}

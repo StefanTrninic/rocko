@@ -1,0 +1,126 @@
+<ion-header>
+  <ion-navbar color="primary"> <ion-title>League A</ion-title> </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h4 style="text-align: center;">League A table</h4>
+  <div>
+    <mat-table
+      #table
+      [dataSource]="dataSource"
+      matSortActive="pos"
+      matSortDirection="asc"
+      matSort
+    >
+      <ng-container matColumnDef="pos">
+        <mat-header-cell
+          *matHeaderCellDef
+          [ngClass]="'posWidthClass'"
+        ></mat-header-cell>
+        <mat-cell *matCellDef="let element" [ngClass]="'posWidthClass'">{{
+          element.pos
+        }}</mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef [ngClass]="'nameWidthClass'"
+          >Club</mat-header-cell
+        >
+        <mat-cell
+          *matCellDef="let element"
+          [ngClass]="'nameWidthClass'"
+          (click)="showPlayers(element.id)"
+          >{{ element.name }}</mat-cell
+        >
+      </ng-container>
+
+      <ng-container matColumnDef="w">
+        <mat-header-cell *matHeaderCellDef [ngClass]="'wWidthClass'"
+          >W</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" [ngClass]="'wWidthClass'">{{
+          element.w
+        }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="p">
+        <mat-header-cell *matHeaderCellDef [ngClass]="'wWidthClass'"
+          >P</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" [ngClass]="'wWidthClass'">{{
+          element.p
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="gd">
+        <mat-header-cell *matHeaderCellDef [ngClass]="'gdWidthClass'"
+          >Gd</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" [ngClass]="'gdWidthClass'">{{
+          element.gd
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="pts">
+        <mat-header-cell *matHeaderCellDef [ngClass]="'ptsWidthClass'"
+          >pts</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" [ngClass]="'ptsWidthClass'">{{
+          element.pts
+        }}</mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </div>
+  <br />
+  <hr />
+  <br />
+  <h6>Matches</h6>
+  <div>
+    <mat-table #table [dataSource]="items | async">
+      <ng-container matColumnDef="round">
+        <mat-header-cell
+          *matHeaderCellDef
+          [ngClass]="'posWidthClass'"
+        ></mat-header-cell>
+        <mat-cell *matCellDef="let element" [ngClass]="'posWidthClass'">{{
+          element.round
+        }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="team1">
+        <mat-header-cell *matHeaderCellDef [ngClass]="'nameWidthClass'"
+          >Home</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" [ngClass]="'nameWidthClass'">{{
+          element.team1
+        }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="result">
+        <mat-header-cell
+          *matHeaderCellDef
+          [ngClass]="'resWidthClass'"
+        ></mat-header-cell>
+        <mat-cell *matCellDef="let element" [ngClass]="'resWidthClass'"
+          ><a href="http://pesfm.org/event/{{element.id}}/" target="_blank">{{
+            element.result
+          }}</a></mat-cell
+        >
+      </ng-container>
+
+      <ng-container matColumnDef="team2">
+        <mat-header-cell *matHeaderCellDef [ngClass]="'nameWidthClass'"
+          >Away</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" [ngClass]="'nameWidthClass'">{{
+          element.team2
+        }}</mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="Columns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: Columns"></mat-row>
+    </mat-table>
+  </div>
+</ion-content>

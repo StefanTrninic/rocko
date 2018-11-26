@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Competitions </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>Leagues</ion-list-header>
+    <ion-item>
+      <button
+        ion-button
+        block
+        outline
+        icon-start
+        item-end
+        color="primary"
+        (click)="openLeagueA()"
+      >
+        League A
+        <ion-icon name="trophy"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>
+      <button
+        ion-button
+        block
+        outline
+        icon-start
+        item-end
+        color="primary"
+        (click)="openLeagueB()"
+      >
+        League B
+        <ion-icon name="trophy"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>

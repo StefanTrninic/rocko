@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-navbar color="primary"> <ion-title> League B Stats </ion-title> </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+
+    <mat-table
+      #table
+      [dataSource]="dataSource"
+      matSort
+      matSortActive="goals"
+      matSortDirection="desc"
+    >
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell
+          *matHeaderCellDef
+          [ngClass]="'nameWidthClass'"
+          mat-sort-header
+          >Name</mat-header-cell
+        >
+        <mat-cell
+          *matCellDef="let element"
+          [ngClass]="'nameWidthClass'"
+          (click)="showData(element)"
+          >{{ element.name }}</mat-cell
+        >
+      </ng-container>
+
+      <ng-container matColumnDef="team">
+        <mat-header-cell
+          *matHeaderCellDef
+          [ngClass]="'nameWidthClass'"
+          mat-sort-header
+          >Club</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" [ngClass]="'nameWidthClass'">{{
+          element.team | teamname
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="assists">
+        <mat-header-cell
+          *matHeaderCellDef
+          [ngClass]
+          mat-sort-header="'gWidthClass'"
+          >A</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" [ngClass]="'gWidthClass'">{{
+          element.assists
+        }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="goals">
+        <mat-header-cell
+          *matHeaderCellDef
+          [ngClass]="'gWidthClass'"
+          mat-sort-header
+          >G</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" [ngClass]="'gWidthClass'">{{
+          element.goals
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="eventsplayed">
+        <mat-header-cell
+          *matHeaderCellDef
+          [ngClass]="'gWidthClass'"
+          mat-sort-header
+          >P</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" [ngClass]="'gWidthClass'">{{
+          element.eventsplayed
+        }}</mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="ColumnsA"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: ColumnsA"></mat-row>
+    </mat-table>
+
+    <mat-paginator #paginator [pageSize]="20" [showFirstLastButtons]="true">
+    </mat-paginator>
+  </div>
+  <h6>Legend:</h6>
+  <p>P - Played matches/G-Goals/A-Assits</p>
+</ion-content>

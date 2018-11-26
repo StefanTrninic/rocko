@@ -1,0 +1,42 @@
+page-team {
+  img {
+    width: auto;
+    margin: auto;
+    display: block;
+  }
+  .mat-header-row {
+    background-color: #388e3c;
+    border-bottom-style: none;
+    padding: 0 16px;
+  }
+  .mat-row {
+    border-bottom-style: none;
+    min-height: 40px;
+    padding: 0 16px;
+  }
+  .mat-row:nth-child(even) {
+    background-color: #cae5ae;
+  }
+
+  .mat-row:nth-child(odd) {
+    background-color: #a1e4a3;
+  }
+  .gWidthClass {
+    flex: 0 0 30px;
+  }
+  .nameWidthClass {
+    flex: 0 0 115px;
+  }
+  .aWidthClass {
+    flex: 0 0 30px;
+  }
+  .ycWidthClass {
+    flex: 0 0 40px;
+  }
+  .pWidthClass {
+    flex: 0 0 35px;
+  }
+  .wrWidthClass {
+    flex: 0 0 55px;
+  }
+}

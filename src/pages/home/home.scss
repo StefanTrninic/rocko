@@ -1,0 +1,37 @@
+page-home {
+  .mat-header-row {
+    background-color: #388e3c;
+    padding: 0 16px;
+  }
+  .mat-row {
+    border-bottom-style: none;
+    min-height: 40px;
+    padding: 0 16px;
+  }
+  .mat-row:nth-child(even) {
+    background-color: #cae5ae;
+  }
+
+  .mat-row:nth-child(odd) {
+    background-color: #a1e4a3;
+  }
+  .posWidthClass {
+    flex: 0 0 35px;
+  }
+  .nameWidthClass {
+    flex: 0 0 125px;
+  }
+  .wWidthClass {
+    flex: 0 0 35px;
+  }
+  .gdWidthClass {
+    flex: 0 0 45px;
+  }
+  .ptsWidthClass {
+    flex: 0 0 45px;
+  }
+  // .mat-table {
+  // overflow: auto;
+  // max-height: 500px;
+  // }
+}

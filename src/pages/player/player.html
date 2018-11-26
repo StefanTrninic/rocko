@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{ Player.name }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <ion-list>
+      <ion-list-header>
+        <h4>Club: {{ Player.team | teamname }}</h4>
+        <ion-thumbnail item-end>
+          <img src="assets/teams/{{Player.team}}.png" />
+        </ion-thumbnail>
+      </ion-list-header>
+      <ion-item>
+        <p>Goals:{{ Player.goals }}</p>
+      </ion-item>
+      <ion-item>
+        <p>Assits:{{ Player.assists }}</p>
+      </ion-item>
+      <ion-item>
+        <p>Goals per match:{{ Player.gopm }}</p>
+      </ion-item>
+      <ion-item>
+        <p>Assits per match:{{ Player.aspm }}</p>
+      </ion-item>
+      <ion-item>
+        <p>Yellow Cards: {{ Player.yellowcards }}</p>
+      </ion-item>
+
+      <ion-item>
+        <p>Matches Played: {{ Player.eventsplayed }}</p>
+      </ion-item>
+
+      <ion-item>
+        <p>Team wins:{{ Player.win }}</p>
+      </ion-item>
+      <ion-item>
+        <p>Team Losses:{{ Player.loss }}</p>
+      </ion-item>
+
+      <ion-item>
+        <p>Win ratio:{{ Player.winratio }} %</p>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

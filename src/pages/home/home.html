@@ -1,0 +1,163 @@
+<ion-header>
+  <ion-navbar color="primary"> <ion-title>Home</ion-title> </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <h4 style="text-align: center;">League A table</h4>
+    <mat-table
+      #table
+      [dataSource]="dataSource"
+      matSortActive="pos"
+      matSortDirection="asc"
+      matSort
+    >
+      <ng-container matColumnDef="pos">
+        <mat-header-cell
+          *matHeaderCellDef
+          [ngClass]="'posWidthClass'"
+        ></mat-header-cell>
+        <mat-cell *matCellDef="let element" [ngClass]="'posWidthClass'">{{
+          element.pos
+        }}</mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef [ngClass]="'nameWidthClass'"
+          >Club</mat-header-cell
+        >
+        <mat-cell
+          *matCellDef="let element"
+          [ngClass]="'nameWidthClass'"
+          (click)="showPlayers(element.id)"
+          >{{ element.name }}</mat-cell
+        >
+      </ng-container>
+
+      <ng-container matColumnDef="w">
+        <mat-header-cell *matHeaderCellDef [ngClass]="'wWidthClass'"
+          >W</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" [ngClass]="'wWidthClass'">{{
+          element.w
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="p">
+        <mat-header-cell *matHeaderCellDef [ngClass]="'wWidthClass'"
+          >P</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" [ngClass]="'wWidthClass'">{{
+          element.p
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="gd">
+        <mat-header-cell *matHeaderCellDef [ngClass]="'gdWidthClass'"
+          >Gd</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" [ngClass]="'gdWidthClass'">{{
+          element.gd
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="pts">
+        <mat-header-cell *matHeaderCellDef [ngClass]="'ptsWidthClass'"
+          >pts</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" [ngClass]="'ptsWidthClass'">{{
+          element.pts
+        }}</mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </div>
+  <br />
+  <hr />
+  <br />
+  <div>
+    <h4 style="text-align: center;">League B table</h4>
+
+    <mat-table
+      #table
+      [dataSource]="rowsB"
+      matSortActive="pos"
+      matSortDirection="asc"
+      matSort
+    >
+      <!--
+        - Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition"
+      -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="pos">
+        <mat-header-cell
+          *matHeaderCellDef
+          [ngClass]="'posWidthClass'"
+        ></mat-header-cell>
+        <mat-cell *matCellDef="let element" [ngClass]="'posWidthClass'">{{
+          element.pos
+        }}</mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef [ngClass]="'nameWidthClass'"
+          >Club</mat-header-cell
+        >
+        <mat-cell
+          *matCellDef="let element"
+          [ngClass]="'nameWidthClass'"
+          (click)="showPlayersb(element.id)"
+          >{{ element.name }}</mat-cell
+        >
+      </ng-container>
+
+      <ng-container matColumnDef="w">
+        <mat-header-cell *matHeaderCellDef [ngClass]="'wWidthClass'"
+          >W</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" [ngClass]="'wWidthClass'">{{
+          element.w
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="p">
+        <mat-header-cell *matHeaderCellDef [ngClass]="'wWidthClass'"
+          >P</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" [ngClass]="'wWidthClass'">{{
+          element.p
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="gd">
+        <mat-header-cell *matHeaderCellDef [ngClass]="'gdWidthClass'"
+          >Gd</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" [ngClass]="'gdWidthClass'">{{
+          element.gd
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="pts">
+        <mat-header-cell *matHeaderCellDef [ngClass]="'ptsWidthClass'"
+          >pts</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element" [ngClass]="'ptsWidthClass'">{{
+          element.pts
+        }}</mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="ColumnsB"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: ColumnsB"></mat-row>
+    </mat-table>
+  </div>
+  <p>*The order is set default by the position</p>
+  <hr />
+  <h6>Legend:</h6>
+  <p>P - Played matches/W - Wins/gd - Goal Diference/Pts - points</p>
+  <button ion-button outline round block color="primary" (click)="openStory()">
+    See our full story
+  </button>
+  <p>powerd by:</p>
+  <img src="assets/teams/zerobet-logo.png" />
+</ion-content>
